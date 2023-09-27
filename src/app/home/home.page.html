@@ -14,12 +14,25 @@
 
     <ion-card-content>
       <ion-item>
-        <ion-input type="number" placeholder="Exemplo: 02022-050">
+        <ion-input [(ngModel)]="cepUser" placeholder="Exemplo: 02022-050">
 
         </ion-input>
       </ion-item>
     </ion-card-content>
 
-    <ion-button fill="outline">Consultar</ion-button>
+    <ion-button fill="outline" button detail lines="inset" (click)="Consultar()">Consultar</ion-button>
+  </ion-card>
+  <ion-card *ngIf="cep">
+
+    <ion-card-header>
+      <ion-card-title>Resultados da consulta</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-label>{{cep.cep}}</ion-label><br>
+      <ion-label>{{cep.uf}}</ion-label>
+      <ion-card-subtitle>{{cep.localidade}}</ion-card-subtitle>
+      <ion-label>{{cep.logradouro}}</ion-label>
+    </ion-card-content>
   </ion-card>
 </ion-content>
